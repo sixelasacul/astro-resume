@@ -1,0 +1,18 @@
+---
+export interface Props {
+  isActive?: boolean
+  selected?: boolean
+}
+
+const { isActive = true, selected = false } = Astro.props
+---
+
+<p
+  class:list={[
+    // print:bg-transparent print:text-sky-700
+    'bg-slate-200 px-1 py-0.5 rounded',
+    { 'opacity-70': !isActive, 'font-semibold': selected }
+  ]}
+>
+  <slot />
+</p>

@@ -1,0 +1,84 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Layout from '@layouts/Layout.astro'
+import Hr from '@components/Hr.astro'
+import Socials from '@components/Socials.astro'
+import Experience from '@layouts/Experience.astro'
+import Skills from '@layouts/Skills.astro'
+import SideProject from '@layouts/SideProject.astro'
+import Section from '@layouts/Section.astro'
+
+export interface Props {
+  experiences: CollectionEntry<'experiences'>[]
+  sideProjects: CollectionEntry<'sideProjects'>[]
+  skills: string[]
+  selectedSkill?: string
+}
+
+const { experiences, sideProjects, skills, selectedSkill } = Astro.props
+---
+
+<Layout>
+  <main class='mx-auto mb-4 max-w-3xl px-4'>
+    <section>
+      <div class='flex flex-row items-center justify-between'>
+        <a href='/' class='underline decoration-dashed'>
+          <h1
+            class='font-headline text-5xl font-bold leading-loose tracking-wide print:text-3xl'
+          >
+            Alexis Lucas
+          </h1>
+        </a>
+        <Socials />
+      </div>
+      <h2 class='font-headline text-xl font-bold leading-loose print:text-lg'>
+        Ingénieur d'études web spécialisé front-end
+      </h2>
+      <p class='mb-2 leading-tight last:mb-0'>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet
+        dui sed est mollis, vitae accumsan mi commodo. Suspendisse bibendum
+        sollicitudin erat, sed tempor arcu volutpat at. Nam mollis orci eget
+        ante porta, eget tincidunt ante ultrices. Fusce dictum sapien in laoreet
+        auctor. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+        Etiam pretium dui eget tincidunt vestibulum. Sed vel elit pretium,
+        fermentum tellus rhoncus, varius ipsum.
+      </p>
+    </section>
+
+    <Hr />
+
+    <Section title='Compétences'>
+      <Skills active={skills} selected={selectedSkill} />
+    </Section>
+
+    {
+      experiences.length > 0 && (
+        <>
+          <Hr />
+          <Section title='Expériences'>
+            <div class='grid grid-cols-1 gap-4'>
+              {experiences.map(exp => (
+                <Experience data={exp} selectedSkill={selectedSkill} />
+              ))}
+            </div>
+          </Section>
+        </>
+      )
+    }
+
+    {
+      sideProjects.length > 0 && (
+        <>
+          <Hr />
+          <Section title='Projets personnels'>
+            <div class='grid grid-cols-1 place-items-start gap-4 sm:grid-cols-2'>
+              {sideProjects.map(project => (
+                <SideProject data={project} selectedSkill={selectedSkill} />
+              ))}
+            </div>
+          </Section>
+        </>
+      )
+    }
+  </main>
+</Layout>

@@ -1,0 +1,40 @@
+---
+import Datetime from '@components/Datetime'
+import type { CollectionEntry } from 'astro:content'
+import Skills from './Skills.astro'
+
+export interface Props {
+  data: CollectionEntry<'experiences'>
+  selectedSkill?: string
+}
+
+const { data, selectedSkill } = Astro.props
+
+const { company, title, startDate, endDate, skills } = data.data
+
+const { Content } = await data.render()
+---
+
+<section class='grid grid-cols-1 gap-2'>
+  <div>
+    <h3 class='font-headline text-xl text-sky-700 print:text-base'>
+      {company} - <span class='font-semibold'>{title}</span>
+    </h3>
+    <Datetime startDate={startDate} endDate={endDate} />
+  </div>
+  <article class='max-w-full'>
+    <Content />
+  </article>
+
+  <Skills {...skills} selected={selectedSkill} />
+</section>
+
+<!-- Have to use `is:global` to style the `Content`. There are alternatives but not yet explored. -->
+<style is:global>
+  article p {
+    @apply mb-2 leading-tight last:mb-0;
+  }
+  article ul {
+    @apply grid list-inside list-disc gap-2 leading-tight;
+  }
+</style>

@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content'
+import { sortCollectionByMostRecentStartDate } from '@utils/sort'
+import { encodeSkill, getActiveSkills } from '@utils/skills'
+import Home from '@layouts/Home.astro'
+
+export interface Props {
+  skill: string
+}
+
+export async function getStaticPaths() {
+  const activeSkills = [...(await getActiveSkills())]
+  return activeSkills.map(skill => ({
+    params: {
+      skill: encodeSkill(skill)
+    },
+    props: {
+      skill
+    }
+  }))
+}
+
+// Instead of passing down the selected skill down, any component can read from
+// Astro.params, but it breaks isolation.
+const { skill } = Astro.props
+
+const experiences = await getCollection('experiences', ({ data }) =>
+  data.skills.active?.includes(skill)
+)
+experiences.sort(sortCollectionByMostRecentStartDate)
+
+const sideProjects = await getCollection('sideProjects', ({ data }) =>
+  data.skills.active?.includes(skill)
+)
+sideProjects.sort(sortCollectionByMostRecentStartDate)
+
+const skills = [...(await getActiveSkills())]
+---
+
+<Home
+  experiences={experiences}
+  sideProjects={sideProjects}
+  skills={skills}
+  selectedSkill={skill}
+/>

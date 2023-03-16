@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content'
+import Home from '@layouts/Home.astro'
+import { sortCollectionByMostRecentStartDate } from '@utils/sort'
+import { getActiveSkills } from '@utils/skills'
+
+const experiences = await getCollection('experiences')
+experiences.sort(sortCollectionByMostRecentStartDate)
+
+const sideProjects = await getCollection('sideProjects')
+sideProjects.sort(sortCollectionByMostRecentStartDate)
+
+// Sort?
+const skills = [...(await getActiveSkills())]
+---
+
+<Home experiences={experiences} sideProjects={sideProjects} skills={skills} />

@@ -1,0 +1,24 @@
+---
+import Skill from '@components/Skill.astro'
+import type { ExperienceFrontmatter } from '@content/_schemas'
+import { encodeSkill } from '@utils/skills'
+
+export type Props = ExperienceFrontmatter['skills'] & {
+  selected?: string
+}
+
+const { active = [], inactive = [], selected } = Astro.props
+---
+
+<ul class='flex flex-row flex-wrap gap-2 font-mono text-sm'>
+  <>
+    {
+      active.map(skill => (
+        <a href={`/${encodeSkill(skill)}`}>
+          <Skill selected={selected === skill}>{skill}</Skill>
+        </a>
+      ))
+    }
+    {inactive.map(skill => <Skill isActive={false}>{skill}</Skill>)}
+  </>
+</ul>

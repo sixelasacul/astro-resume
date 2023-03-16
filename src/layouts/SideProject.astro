@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Skills from './Skills.astro'
+
+export interface Props {
+  data: CollectionEntry<'sideProjects'>
+  selectedSkill?: string
+}
+
+const { data, selectedSkill } = Astro.props
+
+const { name, link, skills } = data.data
+
+const { Content } = await data.render()
+---
+
+<section class='grid grid-cols-1 gap-2'>
+  <h3 class='font-headline text-xl font-semibold text-sky-700 print:text-base'>
+    <a class='underline decoration-dashed' href={link} target='_blank'>{name}</a
+    >
+  </h3>
+  <article class='max-w-full'>
+    <Content />
+  </article>
+
+  <Skills {...skills} selected={selectedSkill} />
+</section>
+
+<!-- Have to use `is:global` to style the `Content`. There are alternatives but not yet explored. -->
+<style is:global>
+  article p {
+    @apply mb-2 leading-tight last:mb-0;
+  }
+</style>
