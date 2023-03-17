@@ -1,6 +1,7 @@
 ---
 import Skill from '@components/Skill.astro'
 import { encodeSkill } from '@utils/skills'
+import { encodeSkill } from '@utils/skills'
 import type { ExperienceFrontmatter } from '@content/_schemas'
 
 export type Props = ExperienceFrontmatter['skills'] & {
@@ -13,20 +14,20 @@ const { active = [], inactive = [], selected } = Astro.props
 <ul class='flex flex-row flex-wrap gap-2 font-mono text-sm'>
   <>
     {
-      active.map(skill => (
+      active.sort().map(skill => (
         <li>
           <a
             href={`/${encodeSkill(skill)}`}
             class='hover:font-semibold print:hidden'
           >
-            <Skill selected={selected === skill}>{skill}</Skill>
+            <Skill selected={selected === skill} data={skill} />
           </a>
           <div class='hidden print:block'>
-            <Skill selected={selected === skill}>{skill}</Skill>
+            <Skill selected={selected === skill} data={skill} />
           </div>
         </li>
       ))
     }
-    {inactive.map(skill => <Skill isActive={false}>{skill}</Skill>)}
+    {inactive.sort().map(skill => <Skill isActive={false} data={skill} />)}
   </>
 </ul>
