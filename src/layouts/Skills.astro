@@ -16,7 +16,7 @@ const { active = [], inactive = [], selected } = Astro.props
       active.map(skill => (
         <a
           href={`/${encodeSkill(skill)}`}
-          class='hover:font-semibold hover:bg-sky-200'
+          class='hover:font-semibold'
         >
           <Skill selected={selected === skill}>{skill}</Skill>
         </a>

@@ -8,7 +8,6 @@ skills:
     - Node
     - TypeScript
     - TailwindCSS
-    - Vite
     - WebSocket
 ---
 

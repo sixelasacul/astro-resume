@@ -9,9 +9,9 @@ skills:
     - HTML
     - CSS
     - JS
-    - SQL
   inactive:
     - PHP
+    - SQL
 ---
 
 Création, mise à jour et optimisation de sites web pour entreprises et particuliers.

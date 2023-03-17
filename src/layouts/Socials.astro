@@ -1,0 +1,32 @@
+---
+import { SOCIALS } from '@config'
+import { removeProtocolFromUrl } from '@utils/url'
+
+export interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<ul class:list={['flex justify-center gap-1', className]}>
+  {
+    SOCIALS.map(({ href, linkTitle, Icon, printable }) => (
+      <li
+        class:list={[
+          'p-1 rounded-full text-slate-900 hover:text-sky-700 hover:bg-slate-200',
+          { 'print:hidden': !printable }
+        ]}
+      >
+        <a href={href} title={linkTitle} class='print:flex gap-1'>
+          <Icon />{' '}
+          {printable && (
+            <span class='hidden print:inline'>
+              {removeProtocolFromUrl(href)}
+            </span>
+          )}
+        </a>
+      </li>
+    ))
+  }
+</ul>
