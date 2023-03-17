@@ -1,0 +1,19 @@
+---
+import DateRange from '@components/DateRange.astro'
+import type { CollectionEntry } from 'astro:content'
+
+export interface Props {
+  data: CollectionEntry<'educations'>
+}
+
+const { name, diploma, startDate, endDate } = Astro.props.data.data
+---
+
+<section class='grid grid-cols-1 gap-2'>
+  <div>
+    <h3 class='font-headline text-xl text-sky-700 print:text-lg'>
+      {name} - <span class='font-semibold'>{diploma}</span>
+    </h3>
+    <DateRange startDate={startDate} endDate={endDate} />
+  </div>
+</section>

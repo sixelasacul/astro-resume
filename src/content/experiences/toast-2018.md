@@ -1,5 +1,5 @@
 ---
-company: Toast
+company: Toast (Irlande)
 title: Stagiaire en développement web full-stack
 contractType: Stage
 startDate: 2018-09-01T00:00:00.000Z
@@ -10,6 +10,7 @@ skills:
     - CSS
     - JS
     - React
+    - Anglais (courant)
   inactive:
     - Redux
     - CSS Modules

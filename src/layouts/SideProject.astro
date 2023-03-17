@@ -15,8 +15,11 @@ const { Content } = await data.render()
 ---
 
 <section class='grid grid-cols-1 gap-2'>
-  <h3 class='font-headline text-xl font-semibold text-sky-700 print:text-base'>
-    <a class='underline decoration-dashed' href={link} target='_blank'>{name}</a
+  <h3 class='font-headline text-xl font-semibold text-sky-700 print:text-lg'>
+    <a
+      class='underline decoration-2 hover:decoration-4'
+      href={link}
+      target='_blank'>{name}</a
     >
   </h3>
   <article class='max-w-full'>
@@ -29,6 +32,6 @@ const { Content } = await data.render()
 <!-- Have to use `is:global` to style the `Content`. There are alternatives but not yet explored. -->
 <style is:global>
   article p {
-    @apply mb-2 leading-tight last:mb-0;
+    @apply text-base leading-tight;
   }
 </style>

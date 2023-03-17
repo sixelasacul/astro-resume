@@ -12,4 +12,4 @@ skills:
     - PowerBI
 ---
 
-Création de visuels personnalisés pour plateformes de BI et utilisation en tableau de bord pour entreprises et mairies.
+Création de visuels personnalisés pour plateformes de Business Intelligence et utilisation en tableau de bord pour entreprises et mairies.

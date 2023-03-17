@@ -1,16 +1,14 @@
 ---
 import { SOCIALS } from '@config'
-import LinkButton from './LinkButton.astro'
-import socialIcons from '@assets/socialIcons'
 ---
 
 <ul class='flex flex-wrap justify-center gap-1'>
   {
-    SOCIALS.filter(social => social.active).map(social => (
-      <li class='p-2 hover:rotate-6 sm:p-1'>
-        <LinkButton href={social.href} title={social.linkTitle}>
-          <Fragment set:html={socialIcons[social.name]} />
-        </LinkButton>
+    SOCIALS.map(({ href, linkTitle, Icon }) => (
+      <li class='p-1 rounded-full text-slate-900 hover:text-sky-700 hover:bg-slate-200'>
+        <a href={href} title={linkTitle}>
+          <Icon />
+        </a>
       </li>
     ))
   }

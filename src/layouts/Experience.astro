@@ -1,5 +1,5 @@
 ---
-import Datetime from '@components/Datetime'
+import DateRange from '@components/DateRange.astro'
 import type { CollectionEntry } from 'astro:content'
 import Skills from './Skills.astro'
 
@@ -17,10 +17,10 @@ const { Content } = await data.render()
 
 <section class='grid grid-cols-1 gap-2'>
   <div>
-    <h3 class='font-headline text-xl text-sky-700 print:text-base'>
+    <h3 class='font-headline text-xl text-sky-700 print:text-lg'>
       {company} - <span class='font-semibold'>{title}</span>
     </h3>
-    <Datetime startDate={startDate} endDate={endDate} />
+    <DateRange startDate={startDate} endDate={endDate} />
   </div>
   <article class='max-w-full'>
     <Content />
@@ -31,10 +31,10 @@ const { Content } = await data.render()
 
 <!-- Have to use `is:global` to style the `Content`. There are alternatives but not yet explored. -->
 <style is:global>
-  article p {
-    @apply mb-2 leading-tight last:mb-0;
+  article li, article p {
+    @apply text-base leading-tight;
   }
   article ul {
-    @apply grid list-inside list-disc gap-2 leading-tight;
+    @apply grid list-inside list-disc gap-2;
   }
 </style>

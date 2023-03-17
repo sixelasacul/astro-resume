@@ -30,3 +30,14 @@ export const sideProjectSchema = z
   .strict()
 
 export type SideProjectFrontmatter = z.infer<typeof sideProjectSchema>
+
+export const educationsSchema = z
+  .object({
+    name: z.string(),
+    diploma: z.string(),
+    startDate: z.date(),
+    endDate: z.date()
+  })
+  .strict()
+
+export type EducationsFrontmatter = z.infer<typeof educationsSchema>

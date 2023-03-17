@@ -2,18 +2,6 @@
 import { SITE } from '@config'
 import '../styles/base.css'
 
-export interface Props {
-  title?: string
-  author?: string
-  description?: string
-}
-
-const {
-  title = SITE.title,
-  author = SITE.author,
-  description = SITE.desc
-} = Astro.props
-
 // const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
@@ -27,10 +15,10 @@ const {
     <meta name='generator' content={Astro.generator} />
 
     <!-- General Meta Tags -->
-    <title>{title}</title>
-    <meta name='title' content={title} />
-    <meta name='description' content={description} />
-    <meta name='author' content={author} />
+    <title>{SITE.title}</title>
+    <meta name='title' content={SITE.title} />
+    <meta name='description' content={SITE.description} />
+    <meta name='author' content={SITE.author} />
 
     <link
       rel='preload'

@@ -9,4 +9,4 @@ skills:
     - TailwindCSS
 ---
 
-Création de ce CV que vous lisez actuellement avec le framework Astro ! Une ancienne implémentation avait été commencé avec Gatsby.
+Création de ce CV que vous lisez actuellement ! Le framework Astro génére des pages statiques, sans aucun JS dans le navigateur.
