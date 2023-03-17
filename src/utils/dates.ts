@@ -1,6 +1,7 @@
 import type { ExperienceFrontmatter } from '@content/_schemas'
 import { formatDistanceStrict } from 'date-fns'
-import { fr } from 'date-fns/locale'
+// @ts-ignore https://github.com/date-fns/date-fns/issues/2629
+import { fr } from 'date-fns/locale/index.js'
 
 export type Dates = Pick<ExperienceFrontmatter, 'startDate' | 'endDate'>
 

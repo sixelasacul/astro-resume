@@ -12,4 +12,4 @@ skills:
     - WebSocket
 ---
 
-Adaptation d'un min-jeu de dés en site en ligne pour jouer contre des amis ou contre une IA. Communication en temps réel via WebSocket hébergé sur CloudFlare.
+Adaptation d'un mini-jeu de dés en site en ligne pour jouer contre des amis ou contre une IA. Communication en temps réel via WebSocket hébergé sur CloudFlare.

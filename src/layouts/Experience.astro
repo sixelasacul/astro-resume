@@ -32,7 +32,7 @@ const { Content } = await data.render()
 <!-- Have to use `is:global` to style the `Content`. There are alternatives but not yet explored. -->
 <style is:global>
   article li, article p {
-    @apply text-base leading-tight;
+    @apply text-base leading-tight text-justify;
   }
   article ul {
     @apply grid list-inside list-disc gap-2;

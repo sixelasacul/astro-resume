@@ -34,12 +34,16 @@ const sideProjects = await getCollection('sideProjects', ({ data }) =>
 )
 sideProjects.sort(sortCollectionByMostRecentStartDate)
 
+const educations = await getCollection('educations')
+educations.sort(sortCollectionByMostRecentStartDate)
+
 const skills = [...(await getActiveSkills())]
 ---
 
 <Home
   experiences={experiences}
   sideProjects={sideProjects}
+  educations={educations}
   skills={skills}
   selectedSkill={skill}
 />
