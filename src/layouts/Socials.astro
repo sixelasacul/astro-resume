@@ -21,7 +21,7 @@ const { class: className } = Astro.props
         <a href={href} title={linkTitle} class='print:flex gap-1'>
           <Icon />{' '}
           {printable && (
-            <span class='hidden print:inline'>
+            <span class='hidden underline decoration-1 print:inline'>
               {removeProtocolFromUrl(href)}
             </span>
           )}
