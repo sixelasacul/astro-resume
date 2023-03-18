@@ -6,7 +6,7 @@ skills:
   active:
     - React
     - Node
-    - TypeScript
+    - TS
     - TailwindCSS
     - WebSocket
 ---

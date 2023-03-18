@@ -5,7 +5,7 @@ startDate: 2023-03-04T00:00:00.000Z
 skills:
   active:
     - Astro
-    - TypeScript
+    - TS
     - TailwindCSS
 ---
 

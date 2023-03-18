@@ -5,7 +5,7 @@ startDate: 2022-12-26T00:00:00.000Z
 skills:
   active:
     - React
-    - TypeScript
+    - TS
     - TailwindCSS
 ---
 

@@ -6,7 +6,7 @@ startDate: 2018-07-01T00:00:00.000Z
 endDate: 2018-09-01T00:00:00.000Z
 skills:
   active:
-    - TypeScript
+    - TS
   inactive:
     - D3JS
     - PowerBI
