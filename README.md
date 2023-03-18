@@ -9,4 +9,4 @@ Pour générer le CV au format PDF, il faut lancer le site et utiliser la conver
 - Format A4
 - Imprimer les arrière-plans
 - Ne pas imprimer les en-têtes et pieds de page
-- Marges personnalisées (haut : 0.25, bas : 0.15, gauche et droite : 0.10)
+- Marges personnalisées (haut et bas : 0.25, gauche et droite : 0.10)

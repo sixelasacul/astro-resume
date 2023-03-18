@@ -108,7 +108,7 @@ const { experiences, sideProjects, educations, skills, selectedSkill } =
     }
 
     {
-      educations.length > 0 && (
+      educations.length > 0 && !selectedSkill && (
         <>
           <Hr />
           <Section title='Formations'>
