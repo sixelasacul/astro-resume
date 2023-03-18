@@ -10,19 +10,18 @@ skills:
     - JS
     - React
     - Node
-    - TypeScript
+    - TS
     - TailwindCSS
     - Design System
     - Component Library
-    - Micro front-end (Single SPA)
+    - Micro front-end
     - Auth0
     - OAuth
     - GraphQL
-    - Google Suite
     - Anglais (courant)
 ---
 
-- Travaux dans plusieurs équipes avec enjeux critiques pour l'entreprise, et en collaboration avec plusieurs autres équipes, avec un impact positif notoire sur l'entreprise.
-- Participation à plusieurs projets et gestion de certains du point de vue conception, besoin, design et technique, liés à l'authentification et l'autorisation des utilisateurs (employés et clients de restaurants) côté front-end, améliorant l'expérience utilisateur et développeur.
-- Développement de plusieurs outils pour tout type d'ingénieurs et support, minimisant les efforts et la charge précédemment requis pour les processus impactés.
-- Contributions à la bibliothèque de composants du système de design utilisée par la grande majorité des développeurs, pour une expérience plus consistante entre les produits proposés aux restaurants.
+- Travaux en collaboration avec plusieurs équipes sur des enjeux critiques et participation régulière à la communauté front-end.
+- Conception et gouvernance de plusieurs librairies d'authentification et d'autorisation pour applications front-end communiquant avec des micro-services, rendant les produits plus sûrs et sécurisés.
+- Création et amélioration d'outils internes, optimisant le développement d'applications front-end et le debuggage.
+- Contributions à la bibliothèque de composants du système de design, pour une utilisation plus simple et une expérience plus consistante entre les produits proposés.
