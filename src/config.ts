@@ -1,6 +1,7 @@
 import Github from '@icons/Github.astro'
 import Linkedin from '@icons/Linkedin.astro'
 import Mail from '@icons/Mail.astro'
+import Phone from '@icons/Phone.astro'
 import PDF from '@icons/PDF.astro'
 import pdf from '/assets/Alexis Lucas - CV.pdf'
 
@@ -35,6 +36,12 @@ export const SOCIALS: Social[] = [
     linkTitle: 'Me contacter par mail',
     printable: true,
     Icon: Mail
+  },
+  {
+    href: 'tel:+33635109657',
+    linkTitle: "M'appeler",
+    printable: true,
+    Icon: Phone
   },
   {
     href: pdf,

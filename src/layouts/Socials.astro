@@ -9,7 +9,7 @@ export interface Props {
 const { class: className } = Astro.props
 ---
 
-<ul class:list={['flex justify-center gap-1', className]}>
+<ul class:list={['flex print:grid print:grid-cols-2 gap-1', className]}>
   {
     SOCIALS.map(({ href, linkTitle, Icon, printable }) => (
       <li
