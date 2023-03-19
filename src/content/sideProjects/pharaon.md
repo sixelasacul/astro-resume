@@ -9,4 +9,4 @@ skills:
     - TailwindCSS
 ---
 
-Application client pour découper des textes par syllabes, assigner une palette de couleurs aux syllabes en fonction de leur son, et partager le résultat via un lien généré à la volée.
+Site web permettant de découper des textes par syllabe, puis de leur assigner des couleurs. Intéressant pour les multisyllabiques dans les morceaux de rap français.

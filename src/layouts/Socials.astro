@@ -14,7 +14,7 @@ const { class: className } = Astro.props
     SOCIALS.map(({ href, linkTitle, Icon, printable }) => (
       <li
         class:list={[
-          'p-1 rounded-full text-slate-900 hover:text-sky-700 hover:bg-slate-200',
+          'p-1 rounded-full text-slate-900 hover:text-sky-700 hover:bg-slate-200 transition-colors duration-100 ease-in-out',
           { 'print:hidden': !printable }
         ]}
       >

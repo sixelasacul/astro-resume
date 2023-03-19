@@ -10,7 +10,7 @@ export interface Props {
 
 const { data, selectedSkill } = Astro.props
 
-const { company, title, startDate, endDate, skills } = data.data
+const { company, title, location, startDate, endDate, skills } = data.data
 
 const { Content } = await data.render()
 ---
@@ -18,7 +18,7 @@ const { Content } = await data.render()
 <section class='grid grid-cols-1 gap-2'>
   <div>
     <h3 class='font-headline text-xl text-sky-700 print:text-lg'>
-      {company} - <span class='font-semibold'>{title}</span>
+      {company} (<span class='oblique'>{location}</span>) - <span class='font-semibold'>{title}</span>
     </h3>
     <DateRange startDate={startDate} endDate={endDate} />
   </div>

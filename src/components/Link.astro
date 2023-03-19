@@ -1,0 +1,23 @@
+---
+export interface Props {
+  href: string
+  newTab?: boolean
+  size?: 'default' | 'large'
+}
+
+const { size = 'default', newTab = false } = Astro.props
+---
+
+<a
+  href={Astro.site}
+  target={newTab ? '_blank' : undefined}
+  class:list={[
+    'underline transition-all ease-in-out',
+    {
+      'duration-100 decoration-2 hover:decoration-4': size === 'default',
+      'duration-150 decoration-4 hover:decoration-8': size === 'large'
+    }
+  ]}
+>
+  <slot />
+</a>

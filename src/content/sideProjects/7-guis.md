@@ -10,4 +10,4 @@ skills:
     - Solid
 ---
 
-Implémentation des tâches proposées par [7 GUIs](https://eugenkiss.github.io/7guis/tasks/), benchmark pour outils de création d'interface, en JS pure, React et Solid.
+Implémentation des tâches proposées par [7 GUIs](https://eugenkiss.github.io/7guis/tasks/). C'est un benchmark pour outils de création d'interface.

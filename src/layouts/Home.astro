@@ -1,8 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import { Image } from '@astrojs/image/components'
-import Layout from '@layouts/Layout.astro'
 import Hr from '@components/Hr.astro'
+import Link from '@components/Link.astro'
+import Layout from '@layouts/Layout.astro'
 import Socials from '@layouts/Socials.astro'
 import Experience from '@layouts/Experience.astro'
 import Skills from '@layouts/Skills.astro'
@@ -10,7 +11,8 @@ import SideProject from '@layouts/SideProject.astro'
 import Section from '@layouts/Section.astro'
 import Education from '@layouts/Education.astro'
 // import photo from '../images/photo 1.jpg'
-import photo from '../images/photo 2.jpeg'
+// import photo from '../images/photo 2.jpeg'
+import photo from '../images/photo 3.jpg'
 
 export interface Props {
   experiences: CollectionEntry<'experiences'>[]
@@ -26,41 +28,39 @@ const { experiences, sideProjects, educations, skills, selectedSkill } =
 
 <Layout>
   <main class='mx-auto mb-4 max-w-3xl px-4'>
-    <section>
+    <section class='grid gap-2'>
       <div class='grid grid-cols-1 md:grid-cols-4 md:place-items-center gap-4'>
         <div class='col-span-3'>
-          <a href={Astro.site} class='underline decoration-4 hover:decoration-8'>
+          <Link href={Astro.site!!.toString()} size='large'>
             <h1
               class='font-headline text-5xl font-bold leading-normal tracking-wide print:text-4xl print:leading-normal'
             >
               Alexis Lucas
             </h1>
-          </a>
+          </Link>
           <h2 class='font-headline text-3xl font-bold print:text-3xl'>
-            Ingénieur d'études web spécialisé front-end
+            Ingénieur d'études web front-end
           </h2>
           <p class='leading-tight text-justify'>
-            J'ai passé plusieurs années à l'étranger qui m'ont été bénéfiques
-            sur le plan technique (reconnu pour mon expertise sur plusieurs
-            sujets à Toast), la culture en entreprise, ainsi que ma
-            communication en équipe et entre équipes. J'aimerais continuer à
-            m'améliorer tout en explorant de nouveaux horizons, de retour en
-            France. Je suis curieux et créatif, j'aime explorer de nouvelles
-            technologies sur des concepts comme vous pouvez le voir sur mon
-            profil GitHub.
+            Spécialisé en développement web front-end et ayant travaillé 3 ans à
+            Dublin, je suis passionné par les technologies innovantes et j'ai
+            développé une grande curiosité et créativité. Désireux de poursuivre
+            ma carrière en France, je recherche actuellement un poste en région
+            PACA.
           </p>
         </div>
         <div
-          class='flex flex-row-reverse md:flex-col col-span-4 md:col-span-1 justify-center items-center gap-4'
+          class='flex flex-row-reverse md:flex-col col-span-4 md:col-span-1 justify-center items-center gap-0'
         >
           <Socials class='print:hidden' />
           <Image
             alt='Photo de profil'
             src={photo}
-            width={176 /* 11rem */}
+            width={320 /* 20rem */}
             aspectRatio='1:1'
             fit='cover'
-            class='rounded-full border-4 border-slate-200 w-24 md:w-44'
+            position='top'
+            class='rounded-full border-4 border-slate-900 w-24 md:w-32'
           />
         </div>
       </div>
@@ -71,7 +71,7 @@ const { experiences, sideProjects, educations, skills, selectedSkill } =
 
     <Section title='Compétences'>
       <p class='text-justify text-slate-700 print:hidden'>
-        (Sélectionnez une compétence pour filtrer les expériences et projet
+        (Sélectionnez une compétence pour filtrer les expériences et projets
         personnels qui l'utilisent)
       </p>
       <Skills active={skills} selected={selectedSkill} />

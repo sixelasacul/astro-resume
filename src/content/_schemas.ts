@@ -4,7 +4,7 @@ export const experienceSchema = z
   .object({
     company: z.string(),
     title: z.string(),
-    contractType: z.enum(['CDI', 'CDD', 'Stage']),
+    location: z.string(),
     startDate: z.date(),
     endDate: z.date().optional(),
     skills: z.object({
