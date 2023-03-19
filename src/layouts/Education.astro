@@ -6,13 +6,13 @@ export interface Props {
   data: CollectionEntry<'educations'>
 }
 
-const { name, diploma, startDate, endDate } = Astro.props.data.data
+const { name, location, diploma, startDate, endDate } = Astro.props.data.data
 ---
 
 <section class='grid grid-cols-1 gap-2'>
   <div>
     <h3 class='font-headline text-xl text-sky-700 print:text-lg'>
-      {name} - <span class='font-semibold'>{diploma}</span>
+      {name} (<span class='oblique'>{location}</span>) - <span class='font-semibold'>{diploma}</span>
     </h3>
     <DateRange startDate={startDate} endDate={endDate} />
   </div>

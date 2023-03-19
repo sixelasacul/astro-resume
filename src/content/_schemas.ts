@@ -34,6 +34,7 @@ export type SideProjectFrontmatter = z.infer<typeof sideProjectSchema>
 export const educationsSchema = z
   .object({
     name: z.string(),
+    location: z.string(),
     diploma: z.string(),
     startDate: z.date(),
     endDate: z.date()
