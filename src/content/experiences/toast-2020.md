@@ -1,6 +1,6 @@
 ---
 company: Toast
-title: Ingénieur d'études senior front-end web
+title: Senior software engineer front-end
 location: Dublin, Irlande
 startDate: 2020-01-27T00:00:00.000Z
 skills:
@@ -11,11 +11,9 @@ skills:
     - React
     - Node
     - TS
-    - TS
     - TailwindCSS
     - Design System
     - Component Library
-    - Micro front-end
     - Micro front-end
     - Auth0
     - OAuth
