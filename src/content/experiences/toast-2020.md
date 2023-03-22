@@ -1,6 +1,6 @@
 ---
 company: Toast
-title: Senior software engineer front-end
+title: Ingénieur d'études front-end confirmé
 location: Dublin, Irlande
 startDate: 2020-01-27T00:00:00.000Z
 skills:
