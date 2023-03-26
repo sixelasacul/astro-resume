@@ -19,4 +19,4 @@ skills:
     - Spring
 ---
 
-Travail en équipe et en méthodologie Agile sur une architecture micro-services REST et applications front-end (SPAs). Permet aux restaurants d'intégrer des services tiers et profiter de nouvelles fonctionnalités.
+Travail en équipe et en méthodologie Agile sur une architecture micro-services REST et applications front-end (SPAs). Permet aux restaurants d'intégrer des services tiers et de profiter de nouvelles fonctionnalités.
