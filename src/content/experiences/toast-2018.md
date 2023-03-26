@@ -10,6 +10,7 @@ skills:
     - CSS
     - JS
     - React
+    - Agile
     - Anglais (courant)
   inactive:
     - Redux

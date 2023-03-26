@@ -6,6 +6,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "pdf": "astro build && astro preview",
     "sync": "astro sync",
     "lint": "eslint ."
   },
