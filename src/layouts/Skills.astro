@@ -1,7 +1,6 @@
 ---
 import Skill from '@components/Skill.astro'
 import { encodeSkill } from '@utils/skills'
-import { encodeSkill } from '@utils/skills'
 import type { ExperienceFrontmatter } from '@content/_schemas'
 
 export type Props = ExperienceFrontmatter['skills'] & {
@@ -9,6 +8,10 @@ export type Props = ExperienceFrontmatter['skills'] & {
 }
 
 const { active = [], inactive = [], selected } = Astro.props
+
+function absoluteUrl(skill: string) {
+  return new URL(encodeSkill(skill), Astro.site!!.toString())
+}
 ---
 
 <ul class='flex flex-row flex-wrap gap-2 font-mono text-sm'>
@@ -17,7 +20,7 @@ const { active = [], inactive = [], selected } = Astro.props
       active.sort().map(skill => (
         <li>
           <a
-            href={`/${encodeSkill(skill)}`}
+            href={absoluteUrl(skill)}
             class='hover:font-semibold print:hidden'
           >
             <Skill selected={selected === skill} data={skill} />
