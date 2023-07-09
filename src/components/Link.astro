@@ -5,17 +5,17 @@ export interface Props {
   size?: 'default' | 'large'
 }
 
-const { size = 'default', newTab = false } = Astro.props
+const { href, size = 'default', newTab = false } = Astro.props
 ---
 
 <a
-  href={Astro.site}
+  href={href}
   target={newTab ? '_blank' : undefined}
   class:list={[
     'underline transition-all ease-in-out',
     {
-      'duration-100 decoration-2 hover:decoration-4': size === 'default',
-      'duration-150 decoration-4 hover:decoration-8': size === 'large'
+      'duration-100 decoration-2 underline-offset-4 hover:decoration-4': size === 'default',
+      'duration-150 decoration-4 underline-offset-8 hover:decoration-8': size === 'large'
     }
   ]}
 >
