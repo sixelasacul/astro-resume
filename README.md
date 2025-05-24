@@ -13,8 +13,3 @@ Pour générer le CV au format PDF, il faut lancer `pnpm pdf` et utiliser la con
 - Marges personnalisées
   - haut et bas : 2.54mm, 0.10"
   - gauche et droite : 0mm, 0"
-
-## TODO
-
-- update pdf
-- update linkedin
