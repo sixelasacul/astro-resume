@@ -1,3 +1,4 @@
+import {} from 'astro:components'
 import Github from '@icons/Github.astro'
 import Linkedin from '@icons/Linkedin.astro'
 import Mail from '@icons/Mail.astro'
@@ -8,13 +9,15 @@ import pdf from '/assets/Alexis Lucas - CV.pdf'
 interface Social {
   href: string
   linkTitle: string
-  Icon: any // No known type for Astro components
+  // No known type for Astro components
+  Icon: (props: Record<string, unknown>) => unknown
   printable: boolean
 }
 
 export const SITE = {
-  author: 'Alexis Lucas',
-  description: 'Mon CV, fait avec Astro.',
+  author: 'Alexis Lucas (Sixela Sacul)',
+  description:
+    'Alexis Lucas (ou Sixela Sacul), je suis développeur web spécialisé front-end (React, TypeScript, Tailwind) sur Lyon. Je suis curieux, créatif et passionné et disponible pour vos projets en freelance.',
   title: 'Alexis Lucas - CV'
 }
 
@@ -32,7 +35,7 @@ export const SOCIALS: Social[] = [
     Icon: Linkedin
   },
   {
-    href: 'mailto:sixela.sacul.pro@pm.me',
+    href: 'mailto:pro@sixe.la',
     linkTitle: 'Me contacter par mail',
     printable: true,
     Icon: Mail

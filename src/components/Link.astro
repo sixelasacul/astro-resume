@@ -3,9 +3,10 @@ export interface Props {
   href: string
   newTab?: boolean
   size?: 'default' | 'large'
+  class?: string
 }
 
-const { href, size = 'default', newTab = false } = Astro.props
+const { href, class: className, size = 'default', newTab = false } = Astro.props
 ---
 
 <a
@@ -14,9 +15,12 @@ const { href, size = 'default', newTab = false } = Astro.props
   class:list={[
     'underline transition-all ease-in-out',
     {
-      'duration-100 decoration-2 underline-offset-4 hover:decoration-4': size === 'default',
-      'duration-150 decoration-4 underline-offset-8 hover:decoration-8': size === 'large'
-    }
+      'duration-100 decoration-2 underline-offset-4 hover:decoration-4':
+        size === 'default',
+      'duration-150 decoration-4 underline-offset-8 hover:decoration-8':
+        size === 'large'
+    },
+    className
   ]}
 >
   <slot />

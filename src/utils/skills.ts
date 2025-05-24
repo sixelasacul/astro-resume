@@ -5,15 +5,15 @@ export async function getActiveSkills() {
   const sideProjects = await getCollection('sideProjects')
 
   const skillSet = new Set<string>()
-  experiences.forEach(exp => {
+  experiences.forEach((exp) => {
     const { active = [] } = exp.data.skills
-    active.forEach(skill => {
+    active.forEach((skill) => {
       skillSet.add(skill)
     })
   })
-  sideProjects.forEach(project => {
+  sideProjects.forEach((project) => {
     const { active = [] } = project.data.skills
-    active.forEach(skill => {
+    active.forEach((skill) => {
       skillSet.add(skill)
     })
   })

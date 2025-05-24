@@ -9,6 +9,12 @@ Pour générer le CV au format PDF, il faut lancer `pnpm pdf` et utiliser la con
 - Format A4
 - Imprimer les arrière-plans
 - Ne pas imprimer les en-têtes et pieds de page
+- Scale : 82% (pour tenir sur 2 pages)
 - Marges personnalisées
-  - haut et bas : 5.08mm, 0.20"
-  - gauche et droite : 3.05mm, 0.12"
+  - haut et bas : 2.54mm, 0.10"
+  - gauche et droite : 0mm, 0"
+
+## TODO
+
+- update pdf
+- update linkedin

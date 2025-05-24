@@ -1,16 +1,19 @@
 ---
 import { SITE } from '@config'
-import '../styles/base.css'
+import '../styles/global.css'
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+function toAbsoluteUrl(path: string) {
+  return `${Astro.site}${path}`
+}
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en'>
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link rel='icon' href='/favicon.ico' />
     <link rel='canonical' href={canonicalURL} />
     <meta name='generator' content={Astro.generator} />
 
@@ -20,19 +23,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <meta name='description' content={SITE.description} />
     <meta name='author' content={SITE.author} />
 
+    <meta property='og:title' content={SITE.title} />
+    <meta property='og:site_name' content={SITE.title} />
+    <meta property='og:description' content={SITE.description} />
+    <meta property='og:image' content={toAbsoluteUrl('/assets/photo.jpeg')} />
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content={canonicalURL} />
+
     <link
       rel='preload'
       href='/fonts/Mona-Sans.woff2'
       as='font'
       type='font/woff2'
-      crossorigin
     />
     <link
       rel='preload'
       href='/fonts/Hubot-Sans.woff2'
       as='font'
       type='font/woff2'
-      crossorigin
+    />
+    <link
+      rel='preload'
+      href='/fonts/MonaspaceNeonVarVF.woff2'
+      as='font'
+      type='font/woff2'
     />
   </head>
   <body class='min-h-screen bg-slate-50 print:bg-transparent'>

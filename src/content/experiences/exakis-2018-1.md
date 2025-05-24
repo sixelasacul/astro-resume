@@ -1,9 +1,9 @@
 ---
-company: Exakis
+company: Exakis Nelite
 title: Stagiaire en développement mobile
 location: Aix-en-Provence, France
 startDate: 2018-01-01T00:00:00.000Z
-endDate: 2018-04-01T00:00:00.000Z
+endDate: 2018-04-31T00:00:00.000Z
 skills:
   inactive:
     - C#

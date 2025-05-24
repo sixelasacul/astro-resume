@@ -1,0 +1,13 @@
+---
+import MapPin from '@icons/MapPin.astro'
+
+export interface Props {
+  location: string
+}
+const { location } = Astro.props
+---
+
+<div class='flex items-center space-x-2 text-slate-700'>
+  <MapPin />
+  <span class='text-sm oblique'>{location}</span>
+</div>

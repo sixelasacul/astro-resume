@@ -2,6 +2,7 @@
 import Link from '@components/Link.astro'
 import type { CollectionEntry } from 'astro:content'
 import Skills from './Skills.astro'
+import ContentStyle from '@components/ContentStyle.astro'
 
 export interface Props {
   data: CollectionEntry<'sideProjects'>
@@ -16,23 +17,12 @@ const { Content } = await data.render()
 ---
 
 <section class='grid grid-cols-1 gap-2'>
-  <h3 class='font-headline text-xl font-semibold text-sky-700 print:text-lg'>
+  <h3 class='font-headline text-xl font-semibold text-green-600 print:text-lg'>
     <Link href={link} newTab>{name}</Link>
   </h3>
-  <article class='max-w-full'>
+  <ContentStyle>
     <Content />
-  </article>
+  </ContentStyle>
 
   <Skills {...skills} selected={selectedSkill} />
 </section>
-
-<!-- Have to use `is:global` to style the `Content`. There are alternatives but not yet explored. -->
-<style is:global>
-  article p {
-    @apply text-base leading-tight text-justify;
-  }
-
-  article a {
-    @apply underline transition-all ease-in-out duration-100 decoration-2 hover:decoration-4;
-  }
-</style>

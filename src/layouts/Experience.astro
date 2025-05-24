@@ -2,6 +2,8 @@
 import DateRange from '@components/DateRange.astro'
 import type { CollectionEntry } from 'astro:content'
 import Skills from './Skills.astro'
+import Location from '@components/Location.astro'
+import ContentStyle from '@components/ContentStyle.astro'
 
 export interface Props {
   data: CollectionEntry<'experiences'>
@@ -17,24 +19,17 @@ const { Content } = await data.render()
 
 <section class='grid grid-cols-1 gap-2'>
   <div>
-    <h3 class='font-headline text-xl text-sky-700 print:text-lg'>
-      {company} (<span class='oblique'>{location}</span>) - <span class='font-semibold'>{title}</span>
+    <h3 class='font-headline text-xl text-green-600 print:text-lg'>
+      {company} - <span class='font-semibold'>{title}</span>
     </h3>
-    <DateRange startDate={startDate} endDate={endDate} />
+    <div class='flex flex-row gap-2'>
+      <DateRange startDate={startDate} endDate={endDate} />
+      <Location location={location} />
+    </div>
   </div>
-  <article class='max-w-full'>
+  <ContentStyle>
     <Content />
-  </article>
+  </ContentStyle>
 
   <Skills {...skills} selected={selectedSkill} />
 </section>
-
-<!-- Have to use `is:global` to style the `Content`. There are alternatives but not yet explored. -->
-<style is:global>
-  article li, article p {
-    @apply text-base leading-tight text-justify;
-  }
-  article ul {
-    @apply grid list-inside list-disc gap-1;
-  }
-</style>

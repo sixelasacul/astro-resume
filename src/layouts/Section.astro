@@ -7,8 +7,15 @@ const { title } = Astro.props
 ---
 
 <section>
-  <h2 class='font-headline text-2xl font-semibold tracking-wide print:text-xl'>
-    {title}
-  </h2>
+  <div class='flex flex-row items-baseline justify-between'>
+    <h2
+      class='font-headline text-2xl font-semibold tracking-wide print:text-xl'
+    >
+      {title}
+    </h2>
+    <h3>
+      <slot name='subtitle' />
+    </h3>
+  </div>
   <slot />
 </section>

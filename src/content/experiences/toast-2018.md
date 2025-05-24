@@ -1,14 +1,12 @@
 ---
-company: Toast
+company: Toast, Inc.
 title: Stagiaire en développement web full-stack
 location: Dublin, Irlande
 startDate: 2018-09-01T00:00:00.000Z
 endDate: 2019-02-01T00:00:00.000Z
 skills:
   active:
-    - HTML
-    - CSS
-    - JS
+    - HTML/CSS/JS
     - React
     - Agile
     - Anglais (courant)

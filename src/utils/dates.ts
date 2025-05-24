@@ -1,17 +1,16 @@
 import type { ExperienceFrontmatter } from '@content/_schemas'
-import { formatDistanceStrict } from 'date-fns'
-// @ts-ignore https://github.com/date-fns/date-fns/issues/2629
-import { fr } from 'date-fns/locale/index.js'
+import { formatDistance } from 'date-fns'
+import { fr } from 'date-fns/locale'
 
 export type Dates = Pick<ExperienceFrontmatter, 'startDate' | 'endDate'>
 
 const formatter = new Intl.DateTimeFormat('fr-FR', {
-  year: "numeric",
+  year: 'numeric',
   month: 'long'
 })
 
 export function formatRange({ startDate, endDate = new Date() }: Dates) {
-  return `${formatter.formatRange(startDate, endDate)} (${formatDistanceStrict(
+  return `${formatter.formatRange(startDate, endDate)} (${formatDistance(
     endDate,
     startDate,
     { locale: fr }
