@@ -1,28 +1,28 @@
 ---
-company: Toast
+company: Toast, Inc.
 title: Ingénieur d'études front-end confirmé
 location: Dublin, Irlande
 startDate: 2020-01-27T00:00:00.000Z
+endDate: 2023-05-12T00:00:00.000Z
 skills:
   active:
-    - HTML
-    - CSS
-    - JS
+    - HTML/CSS/JS
     - React
     - Node
-    - TS
+    - TypeScript
     - TailwindCSS
     - Design System
     - Component Library
     - Micro front-end
-    - Auth0
     - OAuth
-    - GraphQL
     - REST
     - Micro-services
     - Jest
     - Agile
     - Anglais (courant)
+  inactive:
+    - Auth0
+    - GraphQL
 ---
 
 - J'ai travaillé en collaboration avec plusieurs équipes sur des enjeux critiques, en suivant la méthodologie Agile. J'ai aussi régulièrement participé à la communauté front-end pour partager mes connaissances.

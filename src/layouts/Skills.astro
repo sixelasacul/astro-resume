@@ -9,18 +9,19 @@ export type Props = ExperienceFrontmatter['skills'] & {
 
 const { active = [], inactive = [], selected } = Astro.props
 
-function absoluteUrl(skill: string) {
-  return new URL(encodeSkill(skill), Astro.site!!.toString())
+function getLinkSkill(skill: string) {
+  const path = skill !== selected ? encodeSkill(skill) : '/'
+  return new URL(path, Astro.site!.toString())
 }
 ---
 
 <ul class='flex flex-row flex-wrap gap-2 font-mono text-sm'>
   <>
     {
-      active.sort().map(skill => (
+      active.sort().map((skill) => (
         <li>
           <a
-            href={absoluteUrl(skill)}
+            href={getLinkSkill(skill)}
             class='hover:font-semibold print:hidden'
           >
             <Skill selected={selected === skill} data={skill} />
@@ -31,6 +32,6 @@ function absoluteUrl(skill: string) {
         </li>
       ))
     }
-    {inactive.sort().map(skill => <Skill isActive={false} data={skill} />)}
+    {inactive.sort().map((skill) => <Skill isActive={false} data={skill} />)}
   </>
 </ul>

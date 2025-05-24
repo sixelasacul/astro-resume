@@ -10,7 +10,7 @@ export interface Props {
 
 export async function getStaticPaths() {
   const activeSkills = [...(await getActiveSkills())]
-  return activeSkills.map(skill => ({
+  return activeSkills.map((skill) => ({
     params: {
       skill: encodeSkill(skill)
     },

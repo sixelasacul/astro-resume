@@ -1,5 +1,3 @@
-import type { CollectionEntry } from 'astro:content'
-
 interface WithStartDate {
   startDate: Date
 }

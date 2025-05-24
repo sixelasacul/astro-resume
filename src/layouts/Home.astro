@@ -1,74 +1,78 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import { Image } from '@astrojs/image/components'
-import Hr from '@components/Hr.astro'
-import Link from '@components/Link.astro'
-import Layout from '@layouts/Layout.astro'
-import Socials from '@layouts/Socials.astro'
-import Experience from '@layouts/Experience.astro'
-import Skills from '@layouts/Skills.astro'
-import SideProject from '@layouts/SideProject.astro'
-import Section from '@layouts/Section.astro'
-import Education from '@layouts/Education.astro'
-import photo from '../images/photo 3.jpg'
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import Hr from "@components/Hr.astro";
+import Link from "@components/Link.astro";
+import Layout from "@layouts/Layout.astro";
+import Socials from "@layouts/Socials.astro";
+import Experience from "@layouts/Experience.astro";
+import Skills from "@layouts/Skills.astro";
+import SideProject from "@layouts/SideProject.astro";
+import Section from "@layouts/Section.astro";
+import Education from "@layouts/Education.astro";
+import photo from "../images/photo.jpeg";
 
 export interface Props {
-  experiences: CollectionEntry<'experiences'>[]
-  sideProjects: CollectionEntry<'sideProjects'>[]
-  educations: CollectionEntry<'educations'>[]
-  skills: string[]
-  selectedSkill?: string
+  experiences: CollectionEntry<"experiences">[];
+  sideProjects: CollectionEntry<"sideProjects">[];
+  educations: CollectionEntry<"educations">[];
+  skills: string[];
+  selectedSkill?: string;
 }
 
 const { experiences, sideProjects, educations, skills, selectedSkill } =
-  Astro.props
+  Astro.props;
 ---
 
 <Layout>
-  <main class='mx-auto mb-4 max-w-3xl px-4'>
-    <section class='grid gap-2'>
-      <div class='grid grid-cols-1 md:grid-cols-4 md:place-items-center gap-4'>
-        <div class='col-span-3'>
-          <Link href={Astro.site!!.toString()} size='large'>
+  <main class="mx-auto mb-4 max-w-3xl px-4">
+    <section class="grid gap-2">
+      <div class="grid grid-cols-1 md:grid-cols-4 md:place-items-center gap-4">
+        <div class="col-span-3">
+          <Link
+            href={Astro.site!.toString()}
+            size="large"
+            class="decoration-green-600"
+          >
             <h1
-              class='font-headline text-5xl font-bold leading-normal tracking-wide print:text-4xl print:leading-normal'
+              class="font-headline text-5xl text-green-600 font-bold leading-normal tracking-wide print:text-4xl print:leading-normal"
             >
               Alexis Lucas
             </h1>
           </Link>
-          <h2 class='font-headline text-3xl font-bold print:text-3xl'>
+          <h2 class="font-headline text-3xl font-bold print:text-3xl">
             Ingénieur d'études web front-end
           </h2>
-          <p class='leading-tight text-justify'>
-            Spécialisé en développement web front-end et ayant travaillé 3 ans à
-            Dublin, je suis passionné par les technologies innovantes et j'ai
-            développé une grande curiosité et créativité. Désireux de poursuivre
-            ma carrière en France, je recherche de préférence un poste dans le
-            sud-est.
+          <p class="leading-tight text-justify">
+            Fort de 5 ans d'expérience en développement web front-end, acquise à
+            Dublin et en France, je propose mes compétences en freelance en
+            étant basé à Lyon. Ma créativité, ma curiosité et ma passion pour
+            l'écosystème JS sont des atouts que je souhaite mettre à profit dans
+            vos projets.
           </p>
         </div>
         <div
-          class='flex flex-row-reverse md:flex-col col-span-4 md:col-span-1 justify-center items-center gap-0'
+          class="flex flex-row-reverse md:flex-col col-span-4 md:col-span-1 justify-center items-center gap-0"
         >
-          <Socials class='print:hidden' />
+          <Socials class="print:hidden" />
           <Image
-            alt='Photo de profil'
+            alt="Photo de profil"
             src={photo}
             width={320 /* 20rem */}
-            aspectRatio='1:1'
-            fit='cover'
-            position='top'
-            class='rounded-full border-4 border-slate-900 w-24 md:w-32'
+            height={320 /* 20rem */}
+            fit="cover"
+            position="top"
+            class="rounded-full border-4 border-green-600 w-24 md:w-32"
           />
         </div>
       </div>
-      <Socials class='hidden print:grid' />
+      <Socials class="hidden print:grid" />
     </section>
 
     <Hr />
 
-    <Section title='Compétences'>
-      <p class='text-justify text-slate-700 print:hidden'>
+    <Section title="Compétences">
+      <p class="text-justify text-slate-700 print:hidden">
         (Sélectionnez une compétence pour filtrer les expériences et projets
         personnels qui l'utilisent)
       </p>
@@ -79,9 +83,9 @@ const { experiences, sideProjects, educations, skills, selectedSkill } =
       experiences.length > 0 && (
         <>
           <Hr />
-          <Section title='Expériences'>
-            <div class='grid grid-cols-1 gap-4'>
-              {experiences.map(exp => (
+          <Section title="Expériences">
+            <div class="grid grid-cols-1 gap-4">
+              {experiences.map((exp) => (
                 <Experience data={exp} selectedSkill={selectedSkill} />
               ))}
             </div>
@@ -94,9 +98,12 @@ const { experiences, sideProjects, educations, skills, selectedSkill } =
       sideProjects.length > 0 && (
         <>
           <Hr />
-          <Section title='Projets personnels'>
-            <div class='grid grid-cols-1 place-items-start gap-4 sm:grid-cols-2'>
-              {sideProjects.map(project => (
+          <Section title="Projets personnels">
+            <Link href="https://github.com/sixelasacul" slot="subtitle">
+              (Voir plus sur Github)
+            </Link>
+            <div class="grid grid-cols-1 place-items-start gap-4 sm:grid-cols-2">
+              {sideProjects.map((project) => (
                 <SideProject data={project} selectedSkill={selectedSkill} />
               ))}
             </div>
@@ -109,9 +116,9 @@ const { experiences, sideProjects, educations, skills, selectedSkill } =
       educations.length > 0 && !selectedSkill && (
         <>
           <Hr />
-          <Section title='Formations'>
-            <div class='grid'>
-              {educations.map(education => (
+          <Section title="Formations">
+            <div class="grid">
+              {educations.map((education) => (
                 <Education data={education} />
               ))}
             </div>

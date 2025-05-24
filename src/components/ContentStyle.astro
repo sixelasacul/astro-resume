@@ -1,0 +1,10 @@
+---
+// could use the typography plugin from tailwind, but it applies to much styles
+// that I don't want, for the minimal content that I have
+---
+
+<article
+  class='max-w-full [&_p]:text-base [&_p]:leading-tight [&_p]:text-justify [&_li]:text-base [&_li]:leading-tight [&_li]:text-justify [&_ul]:grid [&_ul]:list-disc [&_ul]:list-inside [&_ul]:gap-1 [&_a]:underline [&_a]:transition-all [&_a]:ease-in-out [&_a]:duration-100 [&_a]:decoration-2 [&_a]:hover:decoration-4]'
+>
+  <slot />
+</article>

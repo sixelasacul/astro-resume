@@ -5,8 +5,9 @@ startDate: 2023-03-04T00:00:00.000Z
 skills:
   active:
     - Astro
-    - TS
+    - TypeScript
     - TailwindCSS
+    - Vercel
 ---
 
 Création de ce CV que vous lisez actuellement ! Le framework Astro génére des pages statiques, sans aucun JS dans le navigateur.
