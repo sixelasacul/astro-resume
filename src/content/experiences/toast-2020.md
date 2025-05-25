@@ -20,6 +20,7 @@ skills:
     - Jest
     - Agile
     - Anglais (courant)
+    - TanStack Query
   inactive:
     - Auth0
     - GraphQL
