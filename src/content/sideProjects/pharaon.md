@@ -8,7 +8,7 @@ skills:
     - TypeScript
     - TailwindCSS
     - Zustand
-    - Vercel
+    - CloudFlare
 ---
 
 Site web permettant de découper des textes par syllabe, puis de leur assigner des couleurs. Intéressant pour les multisyllabiques dans les morceaux de rap français.

@@ -10,7 +10,7 @@ skills:
     - TailwindCSS
     - Shadcn UI
     - TanStack Start
-    - Vercel
+    - CloudFlare
 ---
 
 Compagnon pour aider les parties en duo sur TeamFight Tactics, en visualisant les personnes que son partenaire recherche en temps réel.
