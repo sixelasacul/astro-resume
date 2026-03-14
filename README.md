@@ -13,3 +13,19 @@ Pour générer le CV au format PDF, il faut lancer `pnpm pdf` et utiliser la con
 - Marges personnalisées
   - haut et bas : 2.54mm, 0.10"
   - gauche et droite : 0mm, 0"
+
+## TODOs
+
+- [ ] Color code for skills??? Like tests, front, back, infra, tools, idk
+- [ ] Rethink layout to not take like 3 pages wtf
+  - [ ] First experiences are smaller, I could group them like side projects
+  - [ ] Probably too many active skills
+  - [ ] Header could be all horizontal (links right next to the profile)
+    - [ ] or at least have all links in one line
+  - [ ] Instead of showing whole link, just the external link logo
+- [ ] Make it available in english
+  - [ ] Switcher button not visible in print
+  - [ ] Detect user language and move to /en
+  - [ ] Specific PDF
+  - [ ] Localized content
+- [ ] Move to oxfmt, oxlint

@@ -1,6 +1,6 @@
 ---
 import Link from '@components/Link.astro'
-import type { CollectionEntry } from 'astro:content'
+import { type CollectionEntry, render } from 'astro:content'
 import Skills from './Skills.astro'
 import ContentStyle from '@components/ContentStyle.astro'
 
@@ -13,7 +13,7 @@ const { data, selectedSkill } = Astro.props
 
 const { name, link, skills } = data.data
 
-const { Content } = await data.render()
+const { Content } = await render(data)
 ---
 
 <section class='grid grid-cols-1 gap-2'>
