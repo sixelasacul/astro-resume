@@ -10,9 +10,9 @@
     "lint": "prettier src --write && eslint src --fix"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
+    "@astrojs/check": "^0.9.7",
     "@tailwindcss/vite": "^4.1.7",
-    "astro": "^5.8.0",
+    "astro": "^6.0.4",
     "date-fns": "^4.1.0",
     "tailwindcss": "^4.1.7"
   },
