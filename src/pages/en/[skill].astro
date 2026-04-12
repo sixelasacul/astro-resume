@@ -4,14 +4,14 @@ import { sortCollectionByMostRecentStartDate } from '@utils/sort'
 import { encodeSkill, getActiveSkills } from '@utils/skills'
 import Home from '@layouts/Home.astro'
 
-const locale = 'fr' as const
+const locale = 'en' as const
 
 export interface Props {
   skill: string
 }
 
 export async function getStaticPaths() {
-  const activeSkills = [...(await getActiveSkills('fr'))]
+  const activeSkills = [...(await getActiveSkills('en'))]
   return activeSkills.map((skill) => ({
     params: {
       skill: encodeSkill(skill)

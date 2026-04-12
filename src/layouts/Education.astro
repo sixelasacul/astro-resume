@@ -2,12 +2,15 @@
 import DateRange from '@components/DateRange.astro'
 import Location from '@components/Location.astro'
 import type { CollectionEntry } from 'astro:content'
+import type { Locale } from '@utils/i18n'
 
 export interface Props {
   data: CollectionEntry<'educations'>
+  locale: Locale
 }
 
 const { name, location, diploma, startDate, endDate } = Astro.props.data.data
+const { locale } = Astro.props
 ---
 
 <section class='grid grid-cols-1 gap-2'>
@@ -16,7 +19,7 @@ const { name, location, diploma, startDate, endDate } = Astro.props.data.data
       {name} - <span class='font-semibold'>{diploma}</span>
     </h3>
     <div class='flex flex-row gap-2'>
-      <DateRange startDate={startDate} endDate={endDate} />
+      <DateRange startDate={startDate} endDate={endDate} locale={locale} />
       <Location location={location} />
     </div>
   </div>

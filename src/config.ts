@@ -2,9 +2,9 @@ import Github from '@icons/Github.astro'
 import Linkedin from '@icons/Linkedin.astro'
 import Mail from '@icons/Mail.astro'
 import PDF from '@icons/PDF.astro'
-import pdf from '/assets/Alexis Lucas - CV.pdf'
+import { type Locale, useTranslations } from '@utils/i18n'
 
-interface Social {
+export interface Social {
   href: string
   linkTitle: string
   // No known type for Astro components
@@ -13,35 +13,41 @@ interface Social {
 }
 
 export const SITE = {
-  author: 'Alexis Lucas (Sixela Sacul)',
-  description:
-    'Alexis Lucas (ou Sixela Sacul), je suis développeur web spécialisé front-end (React, TypeScript, Tailwind) sur Lyon. Je suis curieux, créatif et passionné et disponible pour vos projets en freelance.',
-  title: 'Alexis Lucas - CV'
+  author: 'Alexis Lucas (Sixela Sacul)'
 }
 
-export const SOCIALS: Social[] = [
-  {
-    href: 'https://github.com/sixelasacul',
-    linkTitle: 'Mon profil GitHub',
-    printable: true,
-    Icon: Github
-  },
-  {
-    href: 'https://www.linkedin.com/in/sixelasacul/',
-    linkTitle: 'Mon profil LinkedIn',
-    printable: true,
-    Icon: Linkedin
-  },
-  {
-    href: 'mailto:pro@sixe.la',
-    linkTitle: 'Me contacter par mail',
-    printable: true,
-    Icon: Mail
-  },
-  {
-    href: pdf,
-    linkTitle: 'Télécharger la version PDF',
-    printable: false,
-    Icon: PDF
-  }
-]
+const PDF_HREFS: Record<Locale, string> = {
+  fr: '/assets/Alexis Lucas - CV.pdf',
+  en: '/assets/Alexis Lucas - Resume.pdf'
+}
+
+export function getSocials(locale: Locale): Social[] {
+  const t = useTranslations(locale)
+
+  return [
+    {
+      href: 'https://github.com/sixelasacul',
+      linkTitle: t('socials.github'),
+      printable: true,
+      Icon: Github
+    },
+    {
+      href: 'https://www.linkedin.com/in/sixelasacul/',
+      linkTitle: t('socials.linkedin'),
+      printable: true,
+      Icon: Linkedin
+    },
+    {
+      href: 'mailto:pro@sixe.la',
+      linkTitle: t('socials.mail'),
+      printable: true,
+      Icon: Mail
+    },
+    {
+      href: PDF_HREFS[locale],
+      linkTitle: t('socials.pdf'),
+      printable: false,
+      Icon: PDF
+    }
+  ]
+}

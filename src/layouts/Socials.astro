@@ -1,17 +1,30 @@
 ---
-import { SOCIALS } from '@config'
+import { getSocials } from '@config'
 import { removeProtocolFromUrl } from '@utils/url'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import type { Locale } from '@utils/i18n'
 
 export interface Props {
   class?: string
 }
 
 const { class: className } = Astro.props
+const locale = (Astro.currentLocale ?? 'fr') as Locale
+const socials = getSocials(locale)
+
+const targetLocale: Locale = locale === 'fr' ? 'en' : 'fr'
+const targetLocaleLabel = targetLocale.toUpperCase()
+
+const pathname = Astro.url.pathname
+const withoutLocalePrefix =
+  locale === 'en' ? pathname.replace(/^\/en(\/|$)/, '/') : pathname
+const pathSegment = withoutLocalePrefix.replace(/^\//, '').replace(/\/$/, '')
+const targetUrl = getRelativeLocaleUrl(targetLocale, pathSegment)
 ---
 
 <ul class:list={['flex print:grid print:grid-cols-2 gap-1', className]}>
   {
-    SOCIALS.map(({ href, linkTitle, Icon, printable }) => (
+    socials.map(({ href, linkTitle, Icon, printable }) => (
       <li
         class:list={[
           'p-1 rounded-full text-slate-900 hover:text-green-600 hover:bg-slate-200 transition-colors duration-100 ease-in-out',
@@ -29,4 +42,9 @@ const { class: className } = Astro.props
       </li>
     ))
   }
+  <li class='p-1 rounded-full text-slate-900 hover:text-green-600 hover:bg-slate-200 transition-colors duration-100 ease-in-out print:hidden'>
+    <a href={targetUrl} class='font-mono text-sm font-semibold'>
+      {targetLocaleLabel}
+    </a>
+  </li>
 </ul>

@@ -3,7 +3,7 @@ company: 'Scalian (client : Bedrock)'
 title: Développeur front-end confirmé
 location: Lyon, France
 startDate: 2025-09-01T00:00:00.000Z
-endDate: 2026-04-01T00:00:00.000Z
+endDate: 2026-05-07T00:00:00.000Z
 skills:
   active:
     - HTML/CSS/JS

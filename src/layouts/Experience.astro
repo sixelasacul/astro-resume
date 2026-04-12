@@ -4,13 +4,15 @@ import { type CollectionEntry, render } from 'astro:content'
 import Skills from './Skills.astro'
 import Location from '@components/Location.astro'
 import ContentStyle from '@components/ContentStyle.astro'
+import type { Locale } from '@utils/i18n'
 
 export interface Props {
   data: CollectionEntry<'experiences'>
   selectedSkill?: string
+  locale: Locale
 }
 
-const { data, selectedSkill } = Astro.props
+const { data, selectedSkill, locale } = Astro.props
 
 const { company, title, location, startDate, endDate, skills } = data.data
 
@@ -23,7 +25,7 @@ const { Content } = await render(data)
       {company} - <span class='font-semibold'>{title}</span>
     </h3>
     <div class='flex flex-row gap-2'>
-      <DateRange startDate={startDate} endDate={endDate} />
+      <DateRange startDate={startDate} endDate={endDate} locale={locale} />
       <Location location={location} />
     </div>
   </div>
