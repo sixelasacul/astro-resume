@@ -1,6 +1,6 @@
 ---
 import DateRange from '@components/DateRange.astro'
-import type { CollectionEntry } from 'astro:content'
+import { type CollectionEntry, render } from 'astro:content'
 import Skills from './Skills.astro'
 import Location from '@components/Location.astro'
 import ContentStyle from '@components/ContentStyle.astro'
@@ -14,7 +14,7 @@ const { data, selectedSkill } = Astro.props
 
 const { company, title, location, startDate, endDate, skills } = data.data
 
-const { Content } = await data.render()
+const { Content } = await render(data)
 ---
 
 <section class='grid grid-cols-1 gap-2'>
