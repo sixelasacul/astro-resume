@@ -1,8 +1,13 @@
 import { getCollection } from 'astro:content'
+import type { Locale } from './i18n'
 
-export async function getActiveSkills() {
-  const experiences = await getCollection('experiences')
-  const sideProjects = await getCollection('sideProjects')
+export async function getActiveSkills(locale: Locale) {
+  const experiences = await getCollection('experiences', (e) =>
+    e.id.startsWith(`${locale}/`)
+  )
+  const sideProjects = await getCollection('sideProjects', (e) =>
+    e.id.startsWith(`${locale}/`)
+  )
 
   const skillSet = new Set<string>()
   experiences.forEach((exp) => {

@@ -3,6 +3,13 @@ import tailwind from '@tailwindcss/vite'
 
 // https://astro.build/config
 export default defineConfig({
+  i18n: {
+    defaultLocale: 'fr',
+    locales: ['fr', 'en'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   site:
     // Use `astro preview` locally to build and serve like on prod, and generate PDF
     process.env.NODE_ENV === 'development'

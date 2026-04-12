@@ -7,17 +7,17 @@ import {
 } from './content/_schemas'
 
 const experiences = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/experiences' }),
+  loader: glob({ pattern: '**/*.md', base: './src/content/experiences' }),
   schema: experienceSchema
 })
 
 const sideProjects = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/sideProjects' }),
+  loader: glob({ pattern: '**/*.md', base: './src/content/sideProjects' }),
   schema: sideProjectSchema
 })
 
 const educations = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/educations' }),
+  loader: glob({ pattern: '**/*.md', base: './src/content/educations' }),
   schema: educationsSchema
 })
 

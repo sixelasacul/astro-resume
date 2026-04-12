@@ -2,11 +2,11 @@
   "name": "astro-resume",
   "version": "2.1.0",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "pdf": "pnpm build && pnpm preview",
+    "pdf": "pnpm build && pnpm preview --host",
     "lint": "prettier src --write && eslint src --fix"
   },
   "dependencies": {

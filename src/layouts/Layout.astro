@@ -1,6 +1,10 @@
 ---
 import { SITE } from '@config'
+import { type Locale, useTranslations } from '@utils/i18n'
 import '../styles/global.css'
+
+const locale = (Astro.currentLocale ?? 'fr') as Locale
+const t = useTranslations(locale)
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 function toAbsoluteUrl(path: string) {
@@ -9,7 +13,7 @@ function toAbsoluteUrl(path: string) {
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang={locale}>
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
@@ -18,14 +22,14 @@ function toAbsoluteUrl(path: string) {
     <meta name='generator' content={Astro.generator} />
 
     <!-- General Meta Tags -->
-    <title>{SITE.title}</title>
-    <meta name='title' content={SITE.title} />
-    <meta name='description' content={SITE.description} />
+    <title>{t('site.title')}</title>
+    <meta name='title' content={t('site.title')} />
+    <meta name='description' content={t('site.description')} />
     <meta name='author' content={SITE.author} />
 
-    <meta property='og:title' content={SITE.title} />
-    <meta property='og:site_name' content={SITE.title} />
-    <meta property='og:description' content={SITE.description} />
+    <meta property='og:title' content={t('site.title')} />
+    <meta property='og:site_name' content={t('site.title')} />
+    <meta property='og:description' content={t('site.description')} />
     <meta property='og:image' content={toAbsoluteUrl('/assets/photo.jpeg')} />
     <meta property='og:type' content='website' />
     <meta property='og:url' content={canonicalURL} />

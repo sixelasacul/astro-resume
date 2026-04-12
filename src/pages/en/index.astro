@@ -4,7 +4,7 @@ import Home from '@layouts/Home.astro'
 import { sortCollectionByMostRecentStartDate } from '@utils/sort'
 import { getActiveSkills } from '@utils/skills'
 
-const locale = 'fr' as const
+const locale = 'en' as const
 
 const experiences = await getCollection('experiences', (e) =>
   e.id.startsWith(`${locale}/`)

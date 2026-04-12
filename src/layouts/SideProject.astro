@@ -3,13 +3,15 @@ import Link from '@components/Link.astro'
 import { type CollectionEntry, render } from 'astro:content'
 import Skills from './Skills.astro'
 import ContentStyle from '@components/ContentStyle.astro'
+import type { Locale } from '@utils/i18n'
 
 export interface Props {
   data: CollectionEntry<'sideProjects'>
   selectedSkill?: string
+  locale: Locale
 }
 
-const { data, selectedSkill } = Astro.props
+const { data, selectedSkill, locale } = Astro.props
 
 const { name, link, skills } = data.data
 
@@ -24,5 +26,5 @@ const { Content } = await render(data)
     <Content />
   </ContentStyle>
 
-  <Skills {...skills} selected={selectedSkill} />
+  <Skills {...skills} selected={selectedSkill} locale={locale} />
 </section>

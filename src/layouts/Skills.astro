@@ -2,16 +2,21 @@
 import Skill from '@components/Skill.astro'
 import { encodeSkill } from '@utils/skills'
 import type { ExperienceFrontmatter } from '@content/_schemas'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import type { Locale } from '@utils/i18n'
 
 export type Props = ExperienceFrontmatter['skills'] & {
   selected?: string
+  locale?: Locale
 }
 
-const { active = [], inactive = [], selected } = Astro.props
+const { active = [], inactive = [], selected, locale = 'fr' } = Astro.props
 
 function getLinkSkill(skill: string) {
-  const path = skill !== selected ? encodeSkill(skill) : '/'
-  return new URL(path, Astro.site!.toString())
+  if (skill === selected) {
+    return getRelativeLocaleUrl(locale, '')
+  }
+  return getRelativeLocaleUrl(locale, encodeSkill(skill))
 }
 ---
 

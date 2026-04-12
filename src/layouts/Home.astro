@@ -10,6 +10,8 @@ import Skills from "@layouts/Skills.astro";
 import SideProject from "@layouts/SideProject.astro";
 import Section from "@layouts/Section.astro";
 import Education from "@layouts/Education.astro";
+
+import { type Locale, useTranslations } from "@utils/i18n";
 import photo from "../images/photo.jpeg";
 
 export interface Props {
@@ -18,17 +20,20 @@ export interface Props {
   educations: CollectionEntry<"educations">[];
   skills: string[];
   selectedSkill?: string;
+  locale: Locale;
 }
 
-const { experiences, sideProjects, educations, skills, selectedSkill } =
+const { experiences, sideProjects, educations, skills, selectedSkill, locale } =
   Astro.props;
+
+const t = useTranslations(locale);
 ---
 
 <Layout>
   <main class="mx-auto mb-4 max-w-3xl px-4">
     <section class="grid gap-2">
-      <div class="grid grid-cols-1 md:grid-cols-4 md:place-items-center gap-4">
-        <div class="col-span-3">
+      <div class="grid grid-cols-1 md:grid-cols-5 md:place-items-center gap-4">
+        <div class="col-span-4">
           <Link
             href={Astro.site!.toString()}
             size="large"
@@ -41,25 +46,22 @@ const { experiences, sideProjects, educations, skills, selectedSkill } =
             </h1>
           </Link>
           <h2 class="font-headline text-3xl font-bold print:text-3xl">
-            Ingénieur d'études web front-end
+            {t("home.jobTitle")}
           </h2>
           <p class="leading-tight text-justify">
-            Fort de 5 ans d'expérience en développement web front-end, acquise à
-            Dublin et en France, je propose mes compétences en freelance en
-            étant basé à Lyon. Ma créativité, ma curiosité et ma passion pour
-            l'écosystème JS sont des atouts que je souhaite mettre à profit dans
-            vos projets.
+            {t("home.intro")}
           </p>
         </div>
         <div
-          class="flex flex-row-reverse md:flex-col col-span-4 md:col-span-1 justify-center items-center gap-0"
+          class="flex flex-row-reverse md:flex-col col-span-5 md:col-span-1 justify-center items-center gap-0"
         >
           <Socials class="print:hidden" />
+
           <Image
-            alt="Photo de profil"
+            alt={t("home.profileAlt")}
             src={photo}
-            width={320 /* 20rem */}
-            height={320 /* 20rem */}
+            width={320}
+            height={320}
             fit="cover"
             position="top"
             class="rounded-full border-4 border-green-600 w-24 md:w-32"
@@ -71,22 +73,25 @@ const { experiences, sideProjects, educations, skills, selectedSkill } =
 
     <Hr />
 
-    <Section title="Compétences">
+    <Section title={t("home.sections.skills")}>
       <p class="text-justify text-slate-700 print:hidden">
-        (Sélectionnez une compétence pour filtrer les expériences et projets
-        personnels qui l'utilisent)
+        {t("home.skills.hint")}
       </p>
-      <Skills active={skills} selected={selectedSkill} />
+      <Skills active={skills} selected={selectedSkill} locale={locale} />
     </Section>
 
     {
       experiences.length > 0 && (
         <>
           <Hr />
-          <Section title="Expériences">
+          <Section title={t("home.sections.experience")}>
             <div class="grid grid-cols-1 gap-4">
               {experiences.map((exp) => (
-                <Experience data={exp} selectedSkill={selectedSkill} />
+                <Experience
+                  data={exp}
+                  selectedSkill={selectedSkill}
+                  locale={locale}
+                />
               ))}
             </div>
           </Section>
@@ -98,13 +103,13 @@ const { experiences, sideProjects, educations, skills, selectedSkill } =
       sideProjects.length > 0 && (
         <>
           <Hr />
-          <Section title="Projets personnels">
+          <Section title={t("home.sections.sideProjects")}>
             <Link href="https://github.com/sixelasacul" slot="subtitle">
-              (Voir plus sur Github)
+              {t("home.seeMoreOnGithub")}
             </Link>
             <div class="grid grid-cols-1 place-items-start gap-4 sm:grid-cols-2">
               {sideProjects.map((project) => (
-                <SideProject data={project} selectedSkill={selectedSkill} />
+                <SideProject data={project} selectedSkill={selectedSkill} locale={locale} />
               ))}
             </div>
           </Section>
@@ -116,10 +121,10 @@ const { experiences, sideProjects, educations, skills, selectedSkill } =
       educations.length > 0 && !selectedSkill && (
         <>
           <Hr />
-          <Section title="Formations">
+          <Section title={t("home.sections.education")}>
             <div class="grid">
               {educations.map((education) => (
-                <Education data={education} />
+                <Education data={education} locale={locale} />
               ))}
             </div>
           </Section>
